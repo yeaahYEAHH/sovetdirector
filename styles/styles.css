@@ -22,7 +22,7 @@ ul {
   list-style: none;
 }
 
-.bold{
+._bold{
   font-weight: 500;
 }
 
@@ -99,9 +99,14 @@ header{
   background: rgba(0, 0, 0, 0.4901960784);
 }
 
+main > *{
+  margin: 0 auto 240px;
+}
+
+
 .title { 
   position: relative;
-  margin: 0 auto 140px;
+
   max-width: 1150px;
   padding: 10px;
 }
@@ -228,6 +233,66 @@ header{
   color: rgba(0, 0, 0, 0.62);
 }
 
+.chairman {
+  max-width: 1200px;
+}
+
+.chairman__title {
+  margin: 16px;
+  font-size: 20px;
+  line-height: 29px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.53);
+}
+
+.chairman__content {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chairman__content > *{
+    flex: 0 1 46%;
+}
+
+.chairman__photo-chairman, .chairman__photo-secretary {
+  display: block;
+  width: 450px;
+  height: 552px;
+  border-radius: 10px;
+}
+
+.chairman__photo-chairman {
+  background: url(../images/board/chairman_photo1682273591.jpeg) top/100% auto no-repeat;
+}
+
+.chairman__photo-secretary {
+  background: url(../images/board/chairman_photo1682273591.jpeg) top/100% auto no-repeat;
+}
+
+.chairman__wrapper {
+  padding-top: 20px;
+}
+
+.chairman__name {
+  margin: 0;
+  font-size: 32px;
+  line-height: 47px;
+  color: #000000;
+}
+
+.chairman__description {
+  font-size: 24px;
+  line-height: 35px;
+  color: rgba(0, 0, 0, 0.59);
+}
+
+.chairman__description:not(:last-child) {
+  margin: 15px 0;
+}
+
 @media (max-width: 1100px) {
   .title__heading {
     background-color: #f3f4f8;
@@ -243,6 +308,22 @@ header{
   .news-card__content {
     gap: 20px;
     justify-content: center;
+  }
+
+  .chairman__content{
+    justify-content: center;
+  }
+
+  .chairman__content>*:not(.chairman__photo-chairman) {
+    flex: 0 1 100%;
+  }
+
+  .chairman__name{
+    text-align: center;
+  }
+
+  .chairman__description{
+    padding: 20px;
   }
 }
 
@@ -347,12 +428,12 @@ header{
     font-size: 36px;
   }
 
-  .news-card{
+  .news-card {
     background-color: #f3f4f8;
     padding: 20px;
   }
 
-  .news-card__title{
+  .news-card__title {
     font-size: 48px;
   }
 
@@ -369,15 +450,36 @@ header{
     padding: 0;
   }
 
-  .news-card__content > *:not(.news-card__image){
+  .news-card__content>*:not(.news-card__image) {
     flex: 0 1 100%;
   }
+  
+  .chairman__photo-chairman,
+  .chairman__photo-secretary {
+    flex-grow: .5;
+    height: 500px;
+  }
 
+  .chairman__description {
+    font-size: 22px;
+    margin: 0;
+    padding: 10px;
+  }
 }
 
-@media (max-width: 425px){
+@media (max-width: 425px) {
   .title__heading {
-      font-size: 20px;
+    font-size: 20px;
+  }
+
+  .chairman__description:not(:last-child) {
+    margin: 0; 
+  }
+
+  .chairman__photo-chairman,
+  .chairman__photo-secretary {
+    flex-grow: 1;
+    height: 400px;
   }
 }
 
@@ -387,56 +489,7 @@ header{
   }
 }
 
-.chairman {
-  margin: 0 auto 200px;
-  width: 1170px;
-}
-.chairman__title {
-  font-size: 20px;
-  line-height: 29px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.53);
-}
-.chairman__content {
-  display: flex;
-}
-
-.chairman__photo-chairman, .chairman__photo-secretary {
-  flex-shrink: 0;
-  margin-right: 90px;
-  width: 450px;
-  border-radius: 10px;
-}
-
-.chairman__photo-chairman {
-  background: url(../images/board/chairman_photo1682273591.jpeg) top/100% auto no-repeat;
-}
-
-.chairman__photo-secretary {
-  background: url(../images/board/chairman_photo1682273591.jpeg) top/100% auto no-repeat;
-}
-
-.chairman__wrapper {
-  padding-top: 20px;
-}
-
-.chairman__name {
-  margin: 0;
-  font-size: 32px;
-  line-height: 47px;
-  color: #000000;
-}
-
-.chairman__description {
-  margin: 15px 0 0;
-  font-size: 24px;
-  line-height: 35px;
-  letter-spacing: 0.7px;
-  color: rgba(0, 0, 0, 0.59);
-}
-
-/* .board {
-  margin: 0 auto 310px;
+.board {
   text-align: center;
 }
 .board__heading {
@@ -489,9 +542,11 @@ header{
   height: 140px;
   border-radius: 50%;
 }
+
 .round{
   border-radius: 200px;
 }
+
 .board-card__name {
   font-weight: 500;
   font-size: 24px;
@@ -499,6 +554,7 @@ header{
   text-align: center;
   color: #000000;
 }
+
 .board-card__insert{
   font-weight: 500;
   font-size: 22px;
@@ -507,15 +563,15 @@ header{
   color: #000000;
   margin-top: -15px;
 }
-.board-card__description {
 
+.board-card__description {
   font-size: 20px;
   line-height: 35px;
   text-align: start;
   color: rgba(0, 0, 0, 0.59);
   margin-top: -15px;
 }
-
+/* 
 .footer {
   position: relative;
   width: 100%;

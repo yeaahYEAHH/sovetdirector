@@ -7,6 +7,10 @@ if(iconMenu){
 		iconMenu.style.position = 'fixed'
 		menuBody.classList.toggle('active')
 		document.body.classList.toggle('lock')
+
+		if (iconMenu.style.position == 'fixed') {
+			iconMenu.style.position = 'relative'
+		}
 	})
 }
 
